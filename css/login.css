@@ -5,36 +5,33 @@ body {
 
 p {
   margin-top: 10px;
-}
-
-.g-signin2 {
-  margin-left: 100px;
-  align-items: center;
-  text-align-last: center;
+  color: gainsboro;
 }
 
 .container {
-  margin-left: 50px;
   align-items: center;
   text-align-last: center;
+  
 }
 
-.logo {
-  height: 209px;
-  margin-left: 160px;
-}
-
-h2 {
-  font-size: 20px;
-  letter-spacing: 1px;
-  margin-left: 25px;
+h1 {
   color: white;
+
 }
 
-.login {
-  padding: 10px 10px 10px 10px;
-  margin-left: 160px;
-  align-items: center;
+.login {    
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: tr;
+  box-sizing: border-box;
+  box-shadow: 0 20px 25px black;
+  border-radius: 10px;
+  letter-spacing: 1px;
 }
 
 input {
@@ -51,17 +48,18 @@ input:hover {
 
 #button {
   text-decoration: none;
-  padding: 10px 80px 10px 80px;
-  font-size: 12px;
-  background-color: grey;
-  color: white;
-  border-radius: 1000px;
+  padding: 11px 70px 11px 70px;
+  font-size: 17px;
+  box-shadow: 1px 3px 2px 1px black;
+  background-color: white;
+  color: #d61c6c; 
+  border-radius: 50px;
   border: none;
   margin-top: 10px;
   text-align: center;
 }
 
 #button:hover {
-  color: blue;
-  background-color: #ffffff;
+  color: white;
+  background-color:#d61c6c; 
 }
