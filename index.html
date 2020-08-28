@@ -1,65 +1,78 @@
-<<!DOCTYPE html>
-  <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
-  <html lang="en">
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en">
 
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <title>eMercado - Todo lo que busques está aquí</title>
-    <link rel="icon" href="img/logoDW170.jpg" type="image/png" />
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <title>eMercado - Todo lo que busques está aquí</title>
+  <link rel="icon" href="img/logoDW170.jpg" type="image/png" />
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/" />
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/login.css" rel="stylesheet" />
-    <link href="js/login.js" rel="stylesheet" />
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id"
-      content="1053343416162-742v8fhib4h3fhs6kcvnc13npjufh8vb.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script>
-      function onSignIn(googleUser) {
-        // Datos útiles para sus scripts del lado del cliente:
-        var profile = googleUser.getBasicProfile();  //Obtenemos el perfil básico del usuario
-        console.log("ID: " + profile.getId());
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
-        window.location = "home.html"; //Redireccionamos
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/login.css" rel="stylesheet" />
+  <link href="js/login.js" rel="stylesheet" />
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id"
+    content="1053343416162-742v8fhib4h3fhs6kcvnc13npjufh8vb.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script>
+    function onSignIn(googleUser) {
+      // Datos útiles para sus scripts del lado del cliente:
+      var profile = googleUser.getBasicProfile();  //Obtenemos el perfil básico del usuario
+      console.log("ID: " + profile.getId());
+      console.log('Full Name: ' + profile.getName());
+      console.log('Given Name: ' + profile.getGivenName());
+      console.log('Family Name: ' + profile.getFamilyName());
+      console.log("Image URL: " + profile.getImageUrl());
+      console.log("Email: " + profile.getEmail());
+      window.location = "home.html"; //Redireccionamos
 
-        //El token de identificación que debe pasar a su backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
-      }
-    </script>
-  </head>
-  <body>
-    <div class="container">
-      <img src="img/logo_login.png" class="logo" alt="Logo" />
-      <div class="login">
-        <h2><b>INICIAR SESIÓN</b></h2>
+      //El token de identificación que debe pasar a su backend:
+      var id_token = googleUser.getAuthResponse().id_token;
+      console.log("ID Token: " + id_token);
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="login">
+      <h1><b>e-Mercado</b></h1>
+      <!-- Ingreso de Usuario -->
+      <p><b>Inicia Sesión </b></p>
+      <form action id="form">
+        <input type="text" placeholder="Usuario" id="username" /><br />
+        <input type="password" placeholder="Contraseña" id="password" /><br />
+        <label id="labelCheckbox">
+          <input type="checkbox" value="remember-me"> Recuérdame
+          <!--Recordar usuario-->
+        </label>
+        <input onclick="login()" type="button" id="button" value="INGRESAR" /><br />
+        <!--Ingresar HOME page-->
+        <!-- Botón de sign in google-->
+        <a class="btn btn-submit ingresar google-btn"
+          href="https://accounts.google.com/o/oauth2/auth/identifier?redirect_uri=storagerelay%3A%2F%2Fhttps%2Fluji2020.github.io%3Fid%3Dauth896135&response_type=permission%20id_token&scope=email%20profile%20openid&openid.realm&client_id=1053343416162-742v8fhib4h3fhs6kcvnc13npjufh8vb.apps.googleusercontent.com&ss_domain=https%3A%2F%2Fluji2020.github.io&fetch_basic_profile=true&gsiwebsdk=2&flowName=GeneralOAuthFlow">
+          <img class="store" src="img/google_logo.png" alt="Iniciar con Google" />
+        </a>
+        <!-- Botón de sign in Facebook-->
+        <a class="facebook-btn" href="https://www.facebook.com/">
+          <img class="store" src="img/facebook_logo.png" alt="Iniciar con Facebook" />
+        </a>
         <br />
-        <form id="form">
-          <input type="text" placeholder="Usuario" id="username" /><br />
-          <input type="password" placeholder="Contraseña" id="password" /><br />
-          <input onclick="login()" type="button" id="button" value="Ingresar" /><br />
-          <br />
-          <p>© Reservado JAP 2020</p><br />
-          <br />
-        </form>
-      </div>
+        <!-- Recuperar Contraseña-->
+        <div class="recuperar">
+          <p><b><a href="#">¿Olvidaste tu contraseña?</a></b></p>
+        </div>
+        <p class="mt-5 mb-3 text-muted">&copy; JAP 2020</p>
+      </form>
     </div>
-    <br />
-    <!-- Botón de sign in-->
-    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div><br>
-    <div id="datos"></div><br>
-    <br />
-    <hr />
+  </div>
 
-    <script src="js/login.js"></script>
-  </body>
-  </html>
+  <script src="js/login.js"></script>
+</body>
+
+</html>
