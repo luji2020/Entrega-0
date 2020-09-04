@@ -17,7 +17,7 @@ function login(){
 
     else {
         localStorage.setItem("usururio", usuario.trim());
-        alert ("Usuario: " + usuario + " " + "Password: " + contrasena); // Avisar los datos al usuario
+        alert ("Usuario: " + usuario + " " + "Contraseña: " + contrasena); // Avisar los datos al usuario
         location.href="home.html"; // Redireccionar
     }
 };
