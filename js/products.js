@@ -1,33 +1,59 @@
-const ORDER_ASC_BY_COST = "A"; // Ascendente
-const ORDER_DESC_BY_COST = "D"; // Descendente
-const ORDER_BY_PROD_COUNT = "Rel."; // Relevancia
-var currentProductsArray = [];
-var currentSortCriteria = undefined;
-var minCount = undefined;
-var maxCount = undefined;
+const ORDER_ASC_BY_NAME         = "AZ";
+const ORDER_DESC_BY_NAME        = "ZA";
+const ORDER_BY_PROD_SOLD_COUNT  = "SoldCount";
+const ORDER_BY_PROD_COST_ASC    = "ascPrecio";
+const ORDER_BY_PROD_COST_DESC   = "descPrecio";
+var currentCategoriesArray      = [];
+var currentSortCriteria         = undefined;
+var minCount                    = undefined;
+var maxCount                    = undefined;
+var barraFiltrador              = undefined;
 
-// Ordenar products
-function sortProduct(criteria, array) {
+function sortCategories(criteria, array){
     let result = [];
-    if (criteria === ORDER_ASC_BY_COST) {
-        result = array.sort(function (a, b) {
-            if (a.cost < b.cost) { return -1; }
-            if (a.cost > b.cost) { return 1; }
+    if (criteria === ORDER_ASC_BY_NAME)
+    {
+        result = array.sort(function(a, b) {
+            if ( a.name < b.name ){ return -1; }
+            if ( a.name > b.name ){ return 1; }
+            
             return 0;
         });
-    } else if (criteria === ORDER_DESC_BY_COST) {
-        result = array.sort(function (a, b) {
-            if (a.cost > b.cost) { return -1; }
-            if (a.cost < b.cost) { return 1; }
-            return 0;
-        });
-    } else if (criteria === ORDER_BY_PROD_COUNT) {
-        result = array.sort(function (a, b) {
-            let aCount = parseInt(a.soldCount);
-            let bCount = parseInt(b.SoldCount);
+    }else if (criteria === ORDER_DESC_BY_NAME) {
+        result = array.sort(function(a, b) {
+            if ( a.name > b.name ){ return -1; }
+            if ( a.name < b.name ){ return 1; }
 
-            if (aCount > bCount) { return -1; }
-            if (aCount < bCount) { return 1; }
+            return 0;
+        });
+    }else if (criteria === ORDER_BY_PROD_COST_ASC) {
+        result = array.sort(function(a, b) {
+            let precioA = parseInt(a.cost);
+            let precioB = parseInt(b.cost);
+
+            if ( precioA < precioB ){ return -1; }
+            if ( precioA > precioB ){ return 1; }
+
+            return 0;
+        });
+    }else if (criteria === ORDER_BY_PROD_COST_DESC) {
+        result = array.sort(function(a, b) {
+            let precioA = parseInt(a.cost);
+            let precioB = parseInt(b.cost);
+
+            if ( precioA > precioB ){ return -1; }
+            if ( precioA < precioB ){ return 1; }
+
+            return 0;
+        });
+    }else if (criteria === ORDER_BY_PROD_SOLD_COUNT) {
+        result = array.sort(function(a, b) {
+            let soldCountA = parseInt(a.soldCount);
+            let soldCountB = parseInt(b.soldCount);
+
+            if ( soldCountA > soldCountB ){ return -1; }
+            if ( soldCountA < soldCountB ){ return 1; }
+
             return 0;
         });
     }
