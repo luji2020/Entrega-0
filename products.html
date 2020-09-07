@@ -21,11 +21,18 @@
   <!-- BARRA DE NAVEGACIÓN -->
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <a class="py-2 d-none d-md-inline-block" href="home.html">INICIO</a>
+      <a class="py-2 d-none d-md-inline-block" href="categories.html">CATEGORÍAS</a>
+      <a class="py-2 d-none d-md-inline-block" href="products.html">PRODUCTOS</a>
+      <a class="py-2 d-none d-md-inline-block" href="sell.html">VENDER</a>
+      <a class="py-2 d-none d-md-inline-block" href="cart.html">MI CARRITO</a>
+      <!-- Barra de Perfil -->
+      <a class="nav-link dropdown-toggle" id="usuario" href="#" data-toggle="dropdown">Usuario</a>
+      <div class="dropdown-menu" id="usuarioNombre"> <!-- Usuario Name -->
+        <a class="dropdown-item" id="usuarioPerfil"></a>
+        <a class="dropdown-item" id="usuarioPerfil" href="my-profile.html">Mis Datos</a>
+        <a class="dropdown-item" id="cerrar" href="index.html">Cerrar Sesión</a> <!-- cerrar sesión -->
+      </div>
     </div>
   </nav>
 
@@ -36,35 +43,34 @@
       <p class="lead">Verás aquí todos los productos del sitio.</p>
     </div>
     <!-- Ordenar ascendente, descendente y relevancia -->
-<div class="container">
-        <div class="row">
-            <div class="col text-right">
-                <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
-                    <label class="btn btn-light active" id="sortAsc" >
-                        <input type="radio" name="options" autocomplete="off" checked>A-Z
-                    </label>
-                    <label class="btn btn-light" id="sortDesc" >
-                        <input type="radio" name="options" autocomplete="off">Z-A
-                    </label>
-                    <label class="btn btn-light" id="precioAcendent"> 
-                      <input type="radio" name="options" autocomplete="off" /><i class="fas fa-sort-amount-up mr-1"></i>$
-                    </label>
-                    <label class="btn btn-light" id="precioDecendent">
-                        <input type="radio" name="options" autocomplete="off" /><i class="fas fa-sort-amount-down mr-1"></i>$
-                    </label>
-                    <label class="btn btn-light" id="sortBySoldCount" >
-                        <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>vendidos.
-                    </label>
-                </div>
-            </div>
+    <div class="container">
+      <div class="row">
+        <div class="col text-right">
+          <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+            <label class="btn btn-light active" id="sortAsc">
+              <input type="radio" name="options" autocomplete="off" checked><i class="fas fa-sort-amount-up mr-1"></i>A
+            </label>
+            <label class="btn btn-light" id="sortDesc">
+              <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>D
+            </label>
+            <label class="btn btn-light" id="sortByCount">
+              <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Rel.
+            </label>
+            <!-- Barra de busqueda -->
+            <form class="example" action="#">
+              <input type="text" placeholder="Busca producto..." id="search" name="search">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+          </div>
         </div>
+      </div>
       <!-- Filtrar por rango -->
       <div class="row justify-content-end">
         <div class="col-md-6"></div>
         <div class="col-md-6 col-sm-12 mb-1 container">
           <div class="row container p-0 m-0">
             <div class="col">
-              <p class="font-weight-normal text-right my-2">Rango: </p>
+              <p class="font-weight-normal text-right my-2">Rango:</p>
             </div>
             <div class="col">
               <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
@@ -111,7 +117,6 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>
-  <script src="js/product-info.js"></script>
   <script src="js/busqueda.js"></script>
 </body>
 
