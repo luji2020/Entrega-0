@@ -1,70 +1,49 @@
-function showCategoriesList(array) {
+var categoriesArray = [];
+function showImagesGallery(array) {
+
     let htmlContentToAppend = "";
     for (let i = 0; i < array.length; i++) {
-        let category = array[i];
+        let imageSrc = array[i];
 
-        htmlContentToAppend +=
-            `
-        <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` +
-            category.imgSrc +
-            `" alt="` +
-            category.description +
-            `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">` +
-            category.name +
-            `</h4>
-                        <p class="text-muted">` +
-            category.soldCount +
-            ` artículos</p>
-                    </div>
-                    <div class="row">
-                    <div class="col>
-                    <p class="text-muted">` +
-            category.description +
-            ` artículos</p>
-                    </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                    <div class="offset-9 col-3">
-                    <p style="font-size:25px;"><strong>$USD ` +
-            category.cost +
-            ` </strong></p>
-                    </div>
-                    </div>
+        htmlContentToAppend += `
+        <div class="col-lg-3 col-md-4 col-6">
+            <div class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
             </div>
         </div>
-        `;
+        `
 
-        document.getElementById(
-            "cat-list-container"
-        ).innerHTML = htmlContentToAppend;
+        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
 }
+
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData("https://japdevdep.github.io/ecommerce-api/product/all.json").then(function
-        (resultObj) {
+    getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
-            categoriesArray = resultObj.data;
+            category = resultObj.data;
 
-            //Muestro las categorías ordenadas
+            let costHTML = document.getElementById("cost");
+            let categoryNameHTML = document.getElementById("categoryName");
+            let categoryDescriptionHTML = document.getElementById("categoryDescription");
+            let soldCountHTML = document.getElementById("soldCount");
+            let categoryHTML = document.getElementById("category");
 
-            showCategoriesList(categoriesArray);
+            costHTML.innerHTML = category.cost;
+            categoryNameHTML.innerHTML = category.name;
+            categoryDescriptionHTML.innerHTML = category.description;
+            soldCountHTML.innerHTML = category.soldCount;
+            categoryHTML.innerHTML = category.category;
+
+            //Muestro las imagenes en forma de galería
+            showImagesGallery(category.images);
         }
-
-        hideSpinner();
-
     });
 });
+
+
