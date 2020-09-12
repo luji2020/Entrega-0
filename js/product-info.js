@@ -1,4 +1,7 @@
 var categoriesArray = [];
+var comments = [];
+
+// Imágenes ilustrativas 
 function showImagesGallery(array) {
 
     let htmlContentToAppend = "";
@@ -6,7 +9,7 @@ function showImagesGallery(array) {
         let imageSrc = array[i];
 
         htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
+        <div class="col-lg-2 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
                 <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
             </div>
@@ -16,8 +19,6 @@ function showImagesGallery(array) {
         document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
 }
-
-
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -34,16 +35,34 @@ document.addEventListener("DOMContentLoaded", function (e) {
             let soldCountHTML = document.getElementById("soldCount");
             let categoryHTML = document.getElementById("category");
 
-            costHTML.innerHTML = category.cost;
+            costHTML.innerHTML = category.currency + " " + category.cost;
             categoryNameHTML.innerHTML = category.name;
             categoryDescriptionHTML.innerHTML = category.description;
             soldCountHTML.innerHTML = category.soldCount;
-            categoryHTML.innerHTML = category.category;
+            categoryHTML.innerHTML = '<a href="category-info.html">' + category.category + '</a>';
 
-            //Muestro las imagenes en forma de galería
+            // Muestro las imágenes en forma de galería
             showImagesGallery(category.images);
         }
     });
 });
 
+
+document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            comments = resultObj.data;
+            var comentarios = "";
+            for (i = 0; i < comments.length; i++) {
+                comentarios += "<br><i class='fas fa-star checked'></i>" + comments[i].score;
+                comentarios += "<br>" + comments[i].user;
+                comentarios += "<br>" + comments[i].description;
+                comentarios += "<br>" + comments[i].dateTime + "<br>";
+
+            }
+            document.getElementById("listcomments").innerHTML = comentarios;
+
+        }
+    });
+});
 
