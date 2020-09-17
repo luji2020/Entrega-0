@@ -68,13 +68,12 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">PRODUCTOS</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">VENDER</a>
       <!-- Barra de Perfil -->
-      <a class="nav-link dropdown-toggle" id="usuario" href="#" data-toggle="dropdown">Usuario</a>
-      <div class="dropdown-menu" id="usuarioNombre">
-        <!-- Usuario Name -->
-        <a class="dropdown-item" id="usuarioPerfil"></a>
-        <a class="dropdown-item" id="usuarioPerfil" href="cart.html">Ver mi carrito</a>
-        <a class="dropdown-item" id="usuarioPerfil" href="my-profile.html">Mi perfil</a>
-        <a class="dropdown-item" id="cerrar" href="index.html">Cerrar Sesión</a> <!-- cerrar sesión -->
+      <a class="nav-link dropdown-toggle" id="usuario" href="" data-toggle="dropdown"></a>
+      <div class="dropdown-menu" id="menuperfil">
+        <a class="dropdown-item" id="carrito" href="cart.html">Ver mi carrito</a>
+        <a class="dropdown-item" id="perfil" href="my-profile.html">Mi perfil</a>
+        <a class="dropdown-item active" id="cerrar" href="index.html">Cerrar
+          sesión</a>
       </div>
     </div>
   </nav>
@@ -115,6 +114,15 @@
         <dd>
           <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
           </div>
+        </dd>
+
+        <dt>Productos relacionados</dt>
+        <dd>
+          <div>
+            <hr class="my-3">
+            <div class="row text-center text-lg-left pt-2" id="relatedProducts">
+            </div>
+        </dd>
         </dd>
 
         <!-- Casilla de nuevo comentario y puntuación -->
@@ -183,6 +191,11 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+  <script src="js/login.js"></script>
+  <script>
+    var usuario = localStorage.getItem('usuario');
+    document.getElementById('usuario').innerHTML = usuario;
+  </script>
 </body>
 
 </html>
