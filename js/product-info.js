@@ -1,5 +1,4 @@
 var categoriesArray = [];
-var comments = [];
 
 // Imágenes ilustrativas 
 function showImagesGallery(array) {
@@ -11,11 +10,10 @@ function showImagesGallery(array) {
         htmlContentToAppend += `
         <div class="col-lg-2 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
+                <img type="button" onclick="window.open(this.src, '_self')"  class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
             </div>
         </div>
         `
-
         document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
 }
@@ -23,7 +21,6 @@ function showImagesGallery(array) {
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
@@ -47,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 });
 
+// Comentarios
 
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
@@ -61,6 +59,51 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
             }
             document.getElementById("listcomments").innerHTML = comentarios;
+
+        }
+    });
+});
+
+// Imágenes relacionadas
+
+document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            products = resultObj.data;
+            var producto = "";
+            for (i = 3; i < products.length; i++) {
+                producto += `
+                <table class="egt">
+                <tr>
+                    <td>
+                        <div class="row">
+                            <div class="col-5">
+                                <img src="` + products[1].imgSrc + `" alt="` + `" class="img-thumbnail">
+                    </div>
+                                <div class="col">
+                                    <h4 class="mb-1">`+ products[1].name + ` - ` + products[1].cost + ` ` + products[1].currency + `</h4>
+                                    <p>` + products[1].description + ` </p>
+                                    <a type="button" style="background-color: gray;" class="btn btn-light btn-lg btn-block" href="products.html">Ver producto</a>
+                                </div>
+                    </td>
+                    <td>
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="` + products[2].imgSrc + `" alt="` + `" class="img-thumbnail">
+                </div>
+                            <div class="col">
+                                <h4 class="mb-1">`+ products[3].name + ` - ` + products[3].cost + ` ` + products[3].currency + `</h4>
+                                <p>` + products[3].description + ` </p>
+                                <a type="button" style="background-color: gray;" class="btn btn-light btn-lg btn-block" href="products.html">Ver producto</a>
+                            </div>
+                </td>          
+                </tr>
+                </table>
+                <br>
+                <br>
+                `
+            }
+            document.getElementById("relatedProducts").innerHTML = producto;
 
         }
     });
