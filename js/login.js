@@ -16,8 +16,9 @@ function login(){
     alert("Debe ingresar una contraseña válida") }
 
     else {
-        localStorage.setItem("usururio", usuario.trim());
+        localStorage.setItem("usuario", usuario.trim()); // guardar el usuario
         alert ("Usuario: " + usuario + " " + "Contraseña: " + contrasena); // Avisar los datos al usuario
         location.href="home.html"; // Redireccionar
     }
 };
+
