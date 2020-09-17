@@ -35,13 +35,21 @@
 </head>
 
 <body>
+<!-- BARRA DE NAVEGACIÓN -->
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <a class="py-2 d-none d-md-inline-block" href="home.html">INICIO</a>
+      <a class="py-2 d-none d-md-inline-block" href="categories.html">CATEGORÍAS</a>
+      <a class="py-2 d-none d-md-inline-block" href="products.html">PRODUCTOS</a>
+      <a class="py-2 d-none d-md-inline-block" href="sell.html">VENDER</a>
+      <!-- Barra de Perfil -->
+      <a class="nav-link dropdown-toggle" id="usuario" href="" data-toggle="dropdown"></a>
+      <div class="dropdown-menu" id="menuperfil">
+        <a class="dropdown-item" id="carrito" href="cart.html">Ver mi carrito</a>
+        <a class="dropdown-item" id="perfil" href="my-profile.html">Mi perfil</a>
+        <a class="dropdown-item active" id="cerrar" href="index.html">Cerrar
+          sesión</a>
+      </div>
     </div>
   </nav>
   <div class="container">
@@ -236,6 +244,11 @@
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/sell.js"></script>
+  <script src="js/login.js"></script>
+  <script>
+    var usuario = localStorage.getItem('usuario');
+    document.getElementById('usuario').innerHTML = usuario;
+  </script>
 </body>
 
 </html>
