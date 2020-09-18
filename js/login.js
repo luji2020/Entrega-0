@@ -2,7 +2,7 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-
+ 
 });
 
 function login(){
@@ -17,8 +17,13 @@ function login(){
 
     else {
         localStorage.setItem("usuario", usuario.trim()); // guardar el usuario
-        alert ("Usuario: " + usuario + " " + "Contraseña: " + contrasena); // Avisar los datos al usuario
+        alert ("Usuario: " + usuario + " " + "Password: " + contrasena); // Avisar los datos al usuario
         location.href="home.html"; // Redireccionar
     }
 };
 
+function loginOut() {
+    localStorage.clear();
+    alert('Sesión cerrada con éxito, hasta la próxima!')
+    location.href="index.html";
+}
