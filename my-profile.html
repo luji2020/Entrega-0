@@ -52,14 +52,123 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
+  
+    <!-- INFO PERFIL -->
+    <main role="main">
+      <div class="container mt-5">
+        <div class="text-center p-4">
+          <h2>Mi perfil</h2>
+          <p class="lead">Permite que la comunidad de e-Mercado te reconozcan.</p>
+        </div>
+        <hr class="my-3">
+        <br>
+        <div class="container">
+          <div class="row justify-content-md-center">
+            <div class="col-md-8 order-md-1">
+              <h3 class="display-3-text">Detalle su perfil</h3>
+              <img id="fotoUsuario" src="img/perfil.png" class="img-fluid img-thumbnail">
+              <br>
+              <br>
+              <!-- Formulario que tira la info al JSON. -->
+              <!-- Las casillas contienen "input-group" para aplicar controles a la visualización del usuario 
+              con indicaciones en  emojis además de multiples imputs-->
+              <form>
+                <div class="form-row">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="">👥</span>
+                    </div>
+                    <input type="text" class="form-control" id="inputNombre" placeholder="Nombre">
+                    <input type="text" class="form-control" id="inputApellido" placeholder="Apellido">
+                  </div>
+                </div>
+                <br>
+                <div class="form-row">
+                  <div class="form-group col-md-10">
+                    <label for="inputEmail">Email</label>
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">@</div>
+                      </div>
+                      <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label for="inputAge">Edad</label>
+                    <input type="number" class="form-control" id="inputAge" placeholder="+18">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputCelular">Celular</label>
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">📱</div>
+                      </div>
+                      <input type="text" class="form-control" id="inputCelular" placeholder="Celular">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputDireccion">Dirección</label>
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">🏠</div>
+                      </div>
+                      <input type="text" class="form-control" id="inputDireccion" placeholder="Dirección">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputCiudad">Ciudad</label>
+                    <input type="text" class="form-control" id="inputCiudad" placeholder="Ciudad">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputDepartamento">Departamento</label>
+                    <select id="inputDepartamento" class="form-control">
+                      <option selected>Elija un departamento...</option>
+                      <option>Artigas</option>
+                      <option>Canelones</option>
+                      <option>Cerro Largo</option>
+                      <option>Colonia</option>
+                      <option>Durazno</option>
+                      <option>Flores</option>
+                      <option>Florida</option>
+                      <option>Lavalleja</option>
+                      <option>Maldonado</option>
+                      <option>Montevideo</option>
+                      <option>Paysandú</option>
+                      <option>Río Negro</option>
+                      <option>Rivera</option>
+                      <option>Rocha</option>
+                      <option>Salto</option>
+                      <option>San José</option>
+                      <option>Soriano</option>
+                      <option>Tacuarembó</option>
+                      <option>Treinta y tres</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+              <div class="row justify-content-md-center">
+                <div class="col">
+                  <button type="button" class="btn btn-primary" onclick="guardar()">Guardar los
+                    cambios</button>
+                </div>
+                <br>
+                <br>
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+
+
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
